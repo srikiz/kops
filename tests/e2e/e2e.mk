@@ -45,11 +45,9 @@ test-e2e-do-simple-1-20: test-e2e-install
 		--up --down \
 		--cloud-provider=digitalocean \
 		--cluster-name e2e-test-do.k8s.local \
-		--create-args networking=cilium \
-		--create-args api-loadbalancer-type=public \
-		--master-count=3 \
+    --create-args "--networking=cilium --api-loadbalancer-type=public --master-count=3" \
 		--env S3_ENDPOINT=sfo2.digitaloceanspaces.com \
-		--env JOB_NAME=pull-kops-e2e-kubernetes-do-kubetest2
+		--env JOB_NAME=pull-kops-e2e-kubernetes-do-kubetest2 \
 		--kops-version-marker=https://storage.googleapis.com/kops-ci/bin/latest-ci-updown-green.txt \
 		--kubernetes-version=https://storage.googleapis.com/kubernetes-release/release/stable-1.20.txt \
 		--template-path=tests/e2e/templates/simple.yaml.tmpl \
