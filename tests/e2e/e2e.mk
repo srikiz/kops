@@ -45,8 +45,8 @@ test-e2e-do-simple-1-20: test-e2e-install
 		--up --down \
 		--cloud-provider=digitalocean \
 		--cluster-name e2e-test-do.k8s.local \
-		--networking=cilium \
-		--api-loadbalancer-type=public \
+		--create-args networking=cilium \
+		--create-args api-loadbalancer-type=public \
 		--master-count=3 \
 		--env S3_ENDPOINT=sfo2.digitaloceanspaces.com \
 		--env JOB_NAME=pull-kops-e2e-kubernetes-do-kubetest2
