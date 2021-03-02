@@ -140,6 +140,8 @@ func (d *deployer) env() []string {
 			v := os.Getenv(k)
 			if v != "" {
 				vars = append(vars, k+"="+v)
+			} else {
+				klog.Warningf("DO env var %s is empty..", k)
 			}
 		}
 	}
