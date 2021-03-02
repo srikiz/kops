@@ -191,6 +191,8 @@ func stateStore(cloudProvider string) string {
 			ss = "s3://k8s-kops-prow"
 		case "gce":
 			ss = "gs://k8s-kops-gce"
+		case "digitalocean":
+			ss = "do://e2e-kops-space"
 		}
 	}
 	return ss
