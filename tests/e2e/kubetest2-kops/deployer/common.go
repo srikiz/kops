@@ -134,6 +134,14 @@ func (d *deployer) env() []string {
 				vars = append(vars, k+"="+v)
 			}
 		}
+	} else if d.CloudProvider == "digitalocean" {
+		// Pass through some env vars if set
+		for _, k := range []string{"DIGITALOCEAN_ACCESS_TOKEN", "S3_ACCESS_KEY_ID", "S3_SECRET_ACCESS_KEY"} {
+			v := os.Getenv(k)
+			if v != "" {
+				vars = append(vars, k+"="+v)
+			}
+		}
 	}
 	if d.KopsBaseURL != "" {
 		vars = append(vars, fmt.Sprintf("KOPS_BASE_URL=%v", d.KopsBaseURL))
