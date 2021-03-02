@@ -136,7 +136,7 @@ func (d *deployer) env() []string {
 		}
 	} else if d.CloudProvider == "digitalocean" {
 		// Pass through some env vars if set
-		for _, k := range []string{"DIGITALOCEAN_ACCESS_TOKEN", "DO_S3_ACCESS_KEY_ID", "DO_S3_SECRET_ACCESS_KEY"} {
+		for _, k := range []string{"DIGITALOCEAN_ACCESS_TOKEN", "S3_ACCESS_KEY_ID", "S3_SECRET_ACCESS_KEY"} {
 			v := os.Getenv(k)
 			if v != "" {
 				vars = append(vars, k+"="+v)
