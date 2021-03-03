@@ -115,7 +115,7 @@ func (d *deployer) createCluster(zones []string, adminAccess string) error {
 	case "gce":
 		args = appendIfUnset(args, "--master-size", "e2-standard-2")
 	case "digitalocean":
-		args = appendIfUnset(args, "--master-size", "s-8vcpu-16gb")
+		args = appendIfUnset(args, "--master-size", "s-2vcpu-4gb")
 	}
 
 	if d.terraform != nil {
